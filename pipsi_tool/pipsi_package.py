@@ -1,3 +1,7 @@
+"""
+Set of tools for working with pipsi packages
+"""
+
 import os
 import os.path
 import re
@@ -7,6 +11,10 @@ RXP_PACKAGES = re.compile(r'^\s*Package\s+"([a-zA-Z0-9_.-]+)"')
 
 
 def gather_packages():
+    """
+    Find all pipsi packages
+    :return:list
+    """
     proc = subprocess.run(['pipsi', 'list'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 
     packages = []
@@ -20,6 +28,12 @@ def gather_packages():
 
 
 def package_python_version(package, pipsi_venvs_dir):
+    """
+    Find major python version used with given package
+    :param package:
+    :param pipsi_venvs_dir:
+    :return:str
+    """
     package_bin_dir = os.path.join(pipsi_venvs_dir, package, 'bin')
     python_bin = os.path.join(package_bin_dir, 'python')
 

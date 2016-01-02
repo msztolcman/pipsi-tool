@@ -2,6 +2,7 @@
 Commands for pipsi-tool
 Module defines helpers for searching for commands and aliases for them.
 """
+
 from .upgrade_all import UpgradeAll
 from .reinstall_all import ReinstallAll
 

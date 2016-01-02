@@ -1,3 +1,7 @@
+"""
+Command 'reinstall-all' for pipsi-tool
+"""
+
 import subprocess
 import sys
 
@@ -6,7 +10,14 @@ from pipsi_tool.pipsi_package import gather_packages, package_python_version
 
 
 class ReinstallAll(Command):
+    """
+    Class for command reinstall-all
+    """
     def run(self):
+        """
+        Run action
+        :return:
+        """
         packages = gather_packages()
         for package in packages:
             if package == 'pipsi':

@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
+"""
+pipsi_tool is set of helpers that are missing in pipsi (https://github.com/mitsuhiko/pipsi)
+"""
+
 from pipsi_tool import utils
 utils.validate_python_version()
 
+# pylint: disable=wrong-import-order
 import argparse
 import os.path
 import sys
@@ -10,10 +15,16 @@ import sys
 from pipsi_tool import commands
 
 
-PIPSI_BIN_DIR=os.path.expanduser('~/.local/venvs/')
+PIPSI_BIN_DIR = os.path.expanduser('~/.local/venvs/')
 
 
 def parse_args(argv):
+    """
+    Parse arguments
+    :param argv:
+    :return:argparse.Namespace
+    """
+    # pylint: disable=invalid-name
     p = argparse.ArgumentParser()
 
     p.add_argument('--venvs-dir', type=str, dest='pipsi_venvs_dir', default='~/.local/venvs/',
@@ -21,9 +32,11 @@ def parse_args(argv):
 
     sub = p.add_subparsers(dest='command')
 
+    # pylint: disable=unused-variable
     p_reinstall_all = sub.add_parser('reinstall-all', aliases=commands.get_aliases_for('reinstall-all'),
         help='')
 
+    # pylint: disable=unused-variable
     p_upgrade_all = sub.add_parser('upgrade-all', aliases=commands.get_aliases_for('upgrade-all'),
         help='')
 
@@ -40,6 +53,10 @@ def parse_args(argv):
 
 
 def main(argv):
+    """
+    :param argv:
+    :return:
+    """
     args = parse_args(argv)
 
     cmd = commands.get(args.command)
