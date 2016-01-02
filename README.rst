@@ -7,7 +7,7 @@ pipsi-tool
 Current stable version
 ----------------------
 
-1.0.2
+1.0.3
 
 Available commands
 ------------------
@@ -44,29 +44,29 @@ Simplest way is to use Python's built-in package system:
 3. Using sources
 
 Download sources from
-`Github <https://github.com/msztolcman/pipsi-tool/archive/1.0.2.zip>`__:
+`Github <https://github.com/msztolcman/pipsi-tool/archive/1.0.3.zip>`__:
 
 ::
 
-    wget -O 1.0.2.zip https://github.com/msztolcman/pipsi-tool/archive/1.0.2.zip
+    wget -O 1.0.3.zip https://github.com/msztolcman/pipsi-tool/archive/1.0.3.zip
 
 or
 
 ::
 
-    curl -o 1.0.2.zip https://github.com/msztolcman/pipsi-tool/archive/1.0.2.zip
+    curl -o 1.0.3.zip https://github.com/msztolcman/pipsi-tool/archive/1.0.3.zip
 
 Unpack:
 
 ::
 
-    unzip 1.0.2.zip
+    unzip 1.0.3.zip
 
 And install
 
 ::
 
-    cd pipsi-tool-1.0.0
+    cd pipsi-tool-1.0.3
     python3 setup.py install
 
 Voila!
@@ -113,6 +113,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ChangeLog
 ---------
+
+v1.0.3
+~~~~~~
+
+-  Minor fixes
 
 v1.0.2
 ~~~~~~
