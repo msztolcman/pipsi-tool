@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 
-import pkg_resources
-import platform
-import sys
-
-if pkg_resources.parse_version(platform.python_version()) < pkg_resources.parse_version('3.5.0'):
-    print("Sorry, Python 3.5+ is required")
-    sys.exit(1)
-
+from pipsi_tool import utils
+utils.validate_python_version()
 
 import argparse
 import os.path
+import sys
 
 from pipsi_tool import commands
 
