@@ -66,7 +66,7 @@ And install
 
 ::
 
-    cd pipsi_tool-1.0.0
+    cd pipsi-tool-1.0.0
     python3 setup.py install
 
 Voila!
