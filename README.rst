@@ -114,6 +114,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ChangeLog
 ---------
 
+v1.0.1
+~~~~~~
+
+-  Fixed README, few improvements
+
 v1.0.0
 ~~~~~~
 
