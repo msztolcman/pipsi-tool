@@ -45,6 +45,6 @@ encoding = utf-8
 [file:3:README.md]
 enabled = true
 match = line
-search = \bcd pipsi_tool-\d+\.\d+\.\d+\b
-replace = cd pipsi_tool-%(version)s
+search = \bcd pipsi-tool-\d+\.\d+\.\d+\b
+replace = cd pipsi-tool-%(version)s
 encoding = utf-8
