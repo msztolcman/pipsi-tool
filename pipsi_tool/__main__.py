@@ -41,5 +41,5 @@ def main(argv):
     cmd = cmd(args)
     return cmd.execute()
 
-if __name__ == '__main__':
-    main(sys.argv[1:])
+
+sys.exit(main(sys.argv[1:]))
