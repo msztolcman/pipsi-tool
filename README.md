@@ -12,7 +12,7 @@ Available commands
 --------
 
 * `pipsi-tool reinstall-all`
-* `pipsi-tool update-all`
+* `pipsi-tool upgrade-all`
 
 Python version
 --------------
