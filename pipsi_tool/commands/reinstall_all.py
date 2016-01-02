@@ -12,7 +12,7 @@ class ReinstallAll(Command):
             if package == 'pipsi':
                 continue
 
-            python_version = package_python_version(package, self.args.pipsi_bin_dir)
+            python_version = package_python_version(package, self.args.pipsi_venvs_dir)
             print("Reinstalling %s with python%s" % (package, python_version))
             subprocess.run(['pipsi', 'uninstall', '--yes', package], stdout=sys.stdout, stderr=sys.stderr, stdin=sys.stdin, check=True)
             subprocess.run(['pipsi', 'install', '--python', 'python%s' % python_version, package], stdout=sys.stdout, stderr=sys.stderr,

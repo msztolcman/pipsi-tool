@@ -14,7 +14,10 @@ PIPSI_BIN_DIR=os.path.expanduser('~/.local/venvs/')
 
 
 def parse_args(argv):
-    p = argparse.ArgumentParser(argv)
+    p = argparse.ArgumentParser()
+
+    p.add_argument('--venvs-dir', type=str, dest='pipsi_venvs_dir', default='~/.local/venvs/',
+        help='')
 
     sub = p.add_subparsers(dest='command')
 
@@ -26,10 +29,12 @@ def parse_args(argv):
 
     args = p.parse_args(argv)
 
+    args.pipsi_venvs_dir = os.path.expanduser(args.pipsi_venvs_dir)
+    if not os.path.isdir(args.pipsi_venvs_dir):
+        p.error("Directory %s not found: is pipsi installed?" % args.pipsi_venvs_dir)
+
     if not args.command:
         p.error('too few arguments')
-
-    args.pipsi_bin_dir = os.path.expanduser('~/.local/venvs/')
 
     return args
 

@@ -19,8 +19,8 @@ def gather_packages():
     return packages
 
 
-def package_python_version(package, pipsi_bin_dir):
-    package_bin_dir = os.path.join(pipsi_bin_dir, package, 'bin')
+def package_python_version(package, pipsi_venvs_dir):
+    package_bin_dir = os.path.join(pipsi_venvs_dir, package, 'bin')
     python_bin = os.path.join(package_bin_dir, 'python')
 
     python_version = None
