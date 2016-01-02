@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+import re
+import subprocess
+import sys
+
+RXP_PACKAGES = re.compile(r'^\s*Package\s+"([a-zA-Z0-9_.-]+)"')
+def gather_packages():
+    proc = subprocess.run(['pipsi', 'list'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+
+    packages = []
+    for line in proc.stdout.decode().splitlines():
+        match = RXP_PACKAGES.search(line)
+        if match:
+            packages.append(match.group(1))
+
+    packages.sort()
+    return packages
+
+def main():
+    packages = gather_packages()
+    for package in packages:
+        subprocess.run(['pipsi', 'upgrade', package], stdout=sys.stdout, stderr=sys.stderr, stdin=sys.stdin, check=True)
+
+if __name__ == '__main__':
+    main()
