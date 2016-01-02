@@ -1,12 +1,10 @@
-#!/usr/bin/env python3
-
-import os, os.path
+import os
+import os.path
 import re
 import subprocess
-import sys
 
-PIPSI_BIN_DIR=os.path.expanduser('~/.local/venvs/')
 RXP_PACKAGES = re.compile(r'^\s*Package\s+"([a-zA-Z0-9_.-]+)"')
+
 
 def gather_packages():
     proc = subprocess.run(['pipsi', 'list'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
@@ -20,8 +18,9 @@ def gather_packages():
     packages.sort()
     return packages
 
-def package_python_version(package):
-    package_bin_dir = os.path.join(PIPSI_BIN_DIR, package, 'bin')
+
+def package_python_version(package, pipsi_bin_dir):
+    package_bin_dir = os.path.join(pipsi_bin_dir, package, 'bin')
     python_bin = os.path.join(package_bin_dir, 'python')
 
     python_version = None
@@ -41,18 +40,3 @@ def package_python_version(package):
                 break
 
     return python_version
-
-def main():
-    packages = gather_packages()
-    for package in packages:
-        if package == 'pipsi':
-            continue
-
-        python_version = package_python_version(package)
-        print("Reinstalling %s with python%s" % (package, python_version))
-        subprocess.run(['pipsi', 'uninstall', '--yes', package], stdout=sys.stdout, stderr=sys.stderr, stdin=sys.stdin, check=True)
-        subprocess.run(['pipsi', 'install', '--python', 'python%s' % python_version, package], stdout=sys.stdout, stderr=sys.stderr, stdin=sys.stdin, check=True)
-        print()
-
-if __name__ == '__main__':
-    main()
