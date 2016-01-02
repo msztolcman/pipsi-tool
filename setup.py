@@ -16,7 +16,7 @@ setup(
     version='1.0.1',
     description='pipsi-tool is set of helpers for https://github.com/mitsuhiko/pipsi',
     long_description=long_description,
-    url='http://mysz.github.io/pipsi-tool/',
+    url='http://msztolcman.github.io/pipsi-tool/',
     author='Marcin Sztolcman',
     author_email='marcin@urzenia.net',
     license='MIT',
