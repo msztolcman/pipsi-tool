@@ -9,4 +9,4 @@ class UpgradeAll(Command):
     def run(self):
         packages = gather_packages()
         for package in packages:
-            subprocess.run(['pipsi', 'upgrade', package], stdout=sys.stdout, stderr=sys.stderr, stdin=sys.stdin, check=True)
+            subprocess.run(['pipsi', 'upgrade', package], stdout=sys.stdout, stderr=sys.stderr, stdin=sys.stdin)
