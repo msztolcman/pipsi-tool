@@ -17,7 +17,7 @@ Available commands
 Python version
 --------------
 
-`versionner` works only with Python 3.5+. Older versions are unsupported.
+`pipsi-tool` works only with Python 3.5+. Older versions are unsupported.
 
 Configuration
 -------------
