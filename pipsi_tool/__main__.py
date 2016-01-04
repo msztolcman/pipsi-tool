@@ -4,7 +4,7 @@
 pipsi_tool is set of helpers that are missing in pipsi (https://github.com/mitsuhiko/pipsi)
 """
 
-from pipsi_tool import utils
+from pipsi_tool import utils, __version__
 utils.validate_python_version()
 
 # pylint: disable=wrong-import-order
@@ -29,6 +29,7 @@ def parse_args(argv):
 
     p.add_argument('--venvs-dir', type=str, dest='pipsi_venvs_dir', default='~/.local/venvs/',
         help='')
+    p.add_argument('--version', action='version', version='%%(prog)s %s' % __version__)
 
     sub = p.add_subparsers(dest='command')
 
